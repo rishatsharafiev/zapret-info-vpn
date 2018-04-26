@@ -102,10 +102,5 @@ ENV/
 
 # Others
 *~
-
-
-/assets/static/*
-!/assets/static/*.gitkeep
-/assets/media/*
-!/assets/media/*.gitkeep
-
+*.json
+*.db
