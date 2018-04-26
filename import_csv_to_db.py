@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 def main():
     DB_NAME = 'zapret_info.db'
 
-    LAST_HOUR = 4
+    LAST_HOUR = 24
     delta_last_hour = datetime.now() - timedelta(hours = LAST_HOUR)
     ISO_LAST_HOUR = delta_last_hour.strftime('%Y-%m-%dT%H:%M:%SZ')
 
