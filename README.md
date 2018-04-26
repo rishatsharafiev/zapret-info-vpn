@@ -1,5 +1,8 @@
 # IP List for VPN
 
+### import source 
+https://github.com/zapret-info/z-i
+
 ### Install sqlite3
 ```
 sudo apt-get install sqlite3 libsqlite3-dev
