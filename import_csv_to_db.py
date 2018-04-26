@@ -32,11 +32,11 @@ def main():
         last_commit_obj = response_obj[0]
         last_commit_url = last_commit_obj.get('url')
 
-        last_commit_url = 'https://api.github.com/repos/{owner}/{repo}/commits/{sha1}'.format(
-            owner=GITHUB_OWNER,
-            repo=GITHUB_REPO,
-            sha1='c9cb57216644dc4c70d905a02f46c8fd37c18b1b',
-        )
+        # last_commit_url = 'https://api.github.com/repos/{owner}/{repo}/commits/{sha1}'.format(
+        #     owner=GITHUB_OWNER,
+        #     repo=GITHUB_REPO,
+        #     sha1='c9cb57216644dc4c70d905a02f46c8fd37c18b1b',
+        # )
 
         response = requests.get(last_commit_url, timeout=15)
         response_obj = response.json()
