@@ -27,16 +27,19 @@ def main():
             }
 
             cursor.execute("SELECT ip FROM block_list WHERE is_blocked=1")
-            with open('last_blocked.json', 'r') as read_file:
-                with open('block_list_with_diff.json', 'w+') as write_file:
-                    ip_list = json.loads(read_file.read())
-                    for row in cursor.fetchall():
-                        ip_new = row[0]
-                        if ip_new not in ip_list:
-                            diff_obj['unblocked'].append(ip_new)
-                        else:
-                            diff_obj['blocked'].append(ip_new)
-                    write_file.write(json.dumps(diff_obj))
+            try:
+                with open('last_blocked.json', 'r') as read_file:
+                    with open('block_list_with_diff.json', 'w+') as write_file:
+                        ip_list = json.loads(read_file.read())
+                        for row in cursor.fetchall():
+                            ip_new = row[0]
+                            if ip_new not in ip_list:
+                                diff_obj['unblocked'].append(ip_new)
+                            else:
+                                diff_obj['blocked'].append(ip_new)
+                        write_file.write(json.dumps(diff_obj))
+            except IOError:
+                print('File last_blocked.json is not exists yet. Please rerun script.')
 
             cursor.execute("SELECT ip FROM block_list WHERE is_blocked=1")
             with open('last_blocked.json', 'w+') as write_file:
